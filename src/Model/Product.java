@@ -11,16 +11,35 @@ package Model;
  */
 public class Product {
     String id_Product, NameofProduct, Supplier, type;
-    double price;
-    int discount;
+    double price,total;
+    int discount,quantity;
 
-    public Product(String id_Product, String NameofProduct, String Supplier, String type, double price, int discount) {
+    public double getTotal() {
+        return total;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+    
+ 
+    public Product(String id_Product, String NameofProduct, String Supplier, String type, double price, double total, int discount, int quantity) {
         this.id_Product = id_Product;
         this.NameofProduct = NameofProduct;
         this.Supplier = Supplier;
         this.type = type;
         this.price = price;
+        this.total = total;
         this.discount = discount;
+        this.quantity = quantity;
     }
 
     public String getId_Product() {

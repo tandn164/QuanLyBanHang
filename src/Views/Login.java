@@ -6,6 +6,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.JButton;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -17,6 +19,8 @@ import javax.swing.JButton;
  * @author admin
  */
 public class Login extends javax.swing.JFrame {
+
+    String file;
 
     /**
      * Creates new form Login
@@ -144,12 +148,11 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_formComponentAdded
 
     public void checkLogin() {
-
         String userName = jTextField1.getText();
         String passWord = jPasswordField1.getText();
         Controllers.Controller control = new Controllers.Controller();
         ArrayList<Account> listAccount = new ArrayList<>();
-        listAccount = control.readFileDataAccount();
+        listAccount = control.readFile("D:/NetBeanProjects/QuanLyBanHang/src/quanlybanhang/Account.bin");
 
         for (int i = 0; i < listAccount.size(); i++) {
             String name = listAccount.get(i).getUserName();
@@ -204,6 +207,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
     }
+
     private void showGUI() {
 
     }

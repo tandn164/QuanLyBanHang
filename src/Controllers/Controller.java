@@ -25,7 +25,7 @@ public class Controller {
     FileInputStream fileInputStream;
     DataInputStream dataInputStream;
 
-    public void WriteFileDataAccount(String userName, String passWord) {
+    public void WriteFile(String userName, String passWord) {
         try {
             String data = userName.concat(":").concat(passWord);
             fileOutputStream = new FileOutputStream("./Data/DataOfAccount");
@@ -40,13 +40,13 @@ public class Controller {
 
     }
 
-    public ArrayList<Account> readFileDataAccount() {
+    public ArrayList<Account> readFile(String file) {
         String data = "";
           Account account = new Account();
         String[] temp = new String[2];
         ArrayList<Account> listData = new ArrayList();
         try {
-            fileInputStream = new FileInputStream("./Data/DataOfAccount");
+            fileInputStream = new FileInputStream(file);
             dataInputStream = new DataInputStream(fileInputStream);
             data = dataInputStream.readLine();
 

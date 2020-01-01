@@ -46,7 +46,7 @@ public class Receipt extends javax.swing.JFrame  {
         txt_quantity_product = new javax.swing.JTextField();
         btn_Reset = new javax.swing.JButton();
         btn_InsertToReceipt = new javax.swing.JButton();
-        txt_id_product = new javax.swing.JTextField();
+        txt_id_Product = new javax.swing.JTextField();
         txt_price = new javax.swing.JTextField();
         txt_product_name = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
@@ -132,7 +132,7 @@ public class Receipt extends javax.swing.JFrame  {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel7)
                         .addGap(34, 34, 34)
-                        .addComponent(txt_id_product))
+                        .addComponent(txt_id_Product))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel10)
                         .addGap(30, 30, 30)
@@ -164,7 +164,7 @@ public class Receipt extends javax.swing.JFrame  {
                 .addGap(49, 49, 49)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(txt_id_product, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_id_Product, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
@@ -198,9 +198,17 @@ public class Receipt extends javax.swing.JFrame  {
 
             },
             new String [] {
-                "MÃ SP", "Tên SP", "Số lượng", "Giá Tiền", "Tổng Tiền"
+                "MÃ SP", "Tên SP", "Số lượng", "Giá Tiền", "Tổng Tiền", ""
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                true, true, true, true, true, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         btn_CreateReceipt.setText("Xuất");
@@ -230,8 +238,9 @@ public class Receipt extends javax.swing.JFrame  {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(29, 29, 29)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_CreateReceipt)
                     .addComponent(btn_exit))
@@ -403,7 +412,7 @@ public class Receipt extends javax.swing.JFrame  {
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField txt_CustomPay;
     private javax.swing.JTextField txt_discount;
-    private javax.swing.JTextField txt_id_product;
+    private javax.swing.JTextField txt_id_Product;
     private javax.swing.JTextField txt_price;
     private javax.swing.JTextField txt_price1;
     private javax.swing.JTextField txt_product_name;

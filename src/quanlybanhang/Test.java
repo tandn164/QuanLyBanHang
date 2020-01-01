@@ -26,38 +26,22 @@ public class Test {
         Account account = new Account();
         String[] temp = new String[2];
         ArrayList<Account> listData = new ArrayList();
-        file = new File("./Account.txt");
-        if (!file.exists()) {
-            System.out.println("File isnt exists");
-        }
+        
         try {
-            fileInputStream = new FileInputStream(file);
-            dataInputStream = new DataInputStream(fileInputStream);
-            fileOutputStream = new FileOutputStream(file);
-            dataOutputStream = new DataOutputStream(fileOutputStream);
-            int data = fileInputStream.read();
-            if (data == -1) {
-                fileOutputStream.write("Hello AnhThu".getBytes());
-                fileOutputStream.close();
-                dataOutputStream.close();
-            } else {
-                System.out.println("content of file: " + data);
-            }
-
-//            int j = 0;
-//            for (int i = 0; i < data.length(); i++) {
-//                if (data.charAt(i) == ':' || data.charAt(i) == ' ') {
-//                    j++;
-//                    continue;
-//                }
-//                temp[j] += data.charAt(i);
-//            }
-//            account.setUserName(temp[0]);
-//            account.setPassWord(temp[1]);
-//            listData.add(account);
-            fileInputStream.close();
-            dataInputStream.close();
-
+            FileOutputStream fos= new FileOutputStream("D:/NetBeanProjects/QuanLyBanHang/src/quanlybanhang/Account.bin");
+            DataOutputStream dos= new DataOutputStream(fos);
+            
+            dos.writeInt(10);
+            fos.close(); 
+            dos.close();
+            
+            FileInputStream fis = new FileInputStream("D:/NetBeanProjects/QuanLyBanHang/src/quanlybanhang/Account.bin");
+            DataInputStream dis = new DataInputStream(fis);
+            
+            int x= dis.readInt();
+            fis.close();
+            dis.close();
+            System.out.println(x);
         } catch (Exception e) {
             System.out.println("File invalid! " + e.getMessage());
         }
